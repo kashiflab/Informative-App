@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/black"
+    android:backgroundTint="@color/black"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/recipeImage"
+        android:src="@drawable/recipe"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:id="@+id/recipeName"
+        android:background="@color/transparentBlue"
+        android:padding="5dp"
+        android:text="Recipe"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_alignBottom="@+id/recipeImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

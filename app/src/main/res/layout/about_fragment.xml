@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.aboutfragment.AboutFragment">
+
+    <LinearLayout
+        android:id="@+id/headLayout"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="tab1.html"
+            android:id="@+id/tab1"
+            android:textStyle="bold"
+            android:layout_marginEnd="5dp"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="简易家常菜"
+            android:textColor="@color/red"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_margin="20dp"
+        android:layout_below="@id/headLayout"
+        android:text="“民以食为天“ ，想要吃一顿丰富且营养的一餐很难吗？其实做菜可以很简单；一顿自己动手操持的家常美味，可以让我们充满幸福感。这里的食谱选用原料取材方便，制作过程简单易行，让您快速掌握各项精要，烹饪出色、香、味、形俱全，且营养健康的家常菜肴。"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/info"
+        android:text="前往分类"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
