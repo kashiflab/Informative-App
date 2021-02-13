@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.limecoders.informativeapp.R;
 import com.limecoders.informativeapp.RecipeAdapter;
-import com.limecoders.informativeapp.RecipeModel;
+import com.limecoders.informativeapp.pojo.RecipeModel;
 
 import java.util.ArrayList;
 import java.util.List;

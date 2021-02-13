@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.limecoders.informativeapp.pojo.RecipeModel;
+
 import java.util.ArrayList;
 import java.util.List;
 

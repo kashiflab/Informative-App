@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.limecoders.informativeapp.pojo.RecipeModel;
 
 import java.util.ArrayList;
 import java.util.List;

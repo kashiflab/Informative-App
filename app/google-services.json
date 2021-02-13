@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "490044395492",
+    "project_id": "informative-app-c87f7",
+    "storage_bucket": "informative-app-c87f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490044395492:android:cbae9796d6e0de6456c1f1",
+        "android_client_info": {
+          "package_name": "com.limecoders.informativeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490044395492-jf9s1injrbdh8he2jbvi1nqcj5ogn68g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaY2M0l7TE34ay8aMbR7oZgIbfiLBtjw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490044395492-jf9s1injrbdh8he2jbvi1nqcj5ogn68g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

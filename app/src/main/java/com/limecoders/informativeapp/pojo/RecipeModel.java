@@ -1,4 +1,4 @@
-package com.limecoders.informativeapp;
+package com.limecoders.informativeapp.pojo;
 
 public class RecipeModel {
     private String id;
