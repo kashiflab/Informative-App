@@ -22,38 +22,34 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.limecoders.informativeapp.pojo.RecipeDetailsModel;
+import com.limecoders.informativeapp.pojo.MainRecipeModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
-
+public class MainRecipeAdapter extends RecyclerView.Adapter<MainRecipeAdapter.ViewHolder> {
     private Context context;
-    private List<RecipeDetailsModel> models = new ArrayList<>();
-    private boolean isList;
+    private boolean isMain;
+    private InterstitialAd mInterstitialAd;
+    private List<MainRecipeModel> modelList = new ArrayList<>();
 
-    private RecipeDetailsModel model2;
-
+    private MainRecipeModel model2;
 
     private int previousClicked;
     private SharedPreferenceManager preferenceManager;
 
-    private InterstitialAd mInterstitialAd;
-
-    public RecipeAdapter(Context context, boolean isList){
+    public MainRecipeAdapter(Context context, boolean isMain){
         this.context = context;
-        this.isList = isList;
+        this.isMain = isMain;
         preferenceManager = new SharedPreferenceManager(context);
         initAd();
     }
 
-    public void setRecipeModel(List<RecipeDetailsModel> models){
-        this.models = models;
+    public void setModelList(List<MainRecipeModel> modelList){
+        this.modelList = modelList;
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -64,28 +60,23 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RecipeDetailsModel model = models.get(position);
+        MainRecipeModel model = modelList.get(position);
 
-        holder.recipeName.setText(model.getMainTitle());
-
-        Picasso.get().load(model.getImageURl()).into(holder.image);
+        holder.recipeName.setText(model.getName());
+        Picasso.get().load(model.getImageUrl()).into(holder.image);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                model2 = models.get(position);
+                model2 = modelList.get(position);
                 showAd();
             }
         });
-
-//        if(model.getImageUrl().equals("dummy")) holder.image.setImageResource(R.drawable.recipe);
-//
-//        else Picasso.get().load(model.getImageUrl()).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return modelList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -97,6 +88,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             recipeName = itemView.findViewById(R.id.recipeName);
         }
     }
+
     public void initAd(){
         MobileAds.initialize(context, new OnInitializationCompleteListener() {
             @Override
@@ -126,14 +118,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                         // Called when fullscreen content is dismissed.
                         Log.i("Interstitial", "The ad was dismissed.");
                         createPersonalizedAd();
-                        context.startActivity(new Intent(context, RecipeDetailActivity.class)
-                                .putExtra("id",model2.getId()).putExtra("imageUrl",model2.getImageURl())
-                                .putExtra("mainTitle",model2.getMainTitle()).putExtra("title1",model2.getTitle1())
-                                .putExtra("desc1",model2.getDesc1()).putExtra("title2",model2.getTitle2())
-                                .putExtra("desc2",model2.getDesc2()).putExtra("title3",model2.getTitle3())
-                                .putExtra("desc3",model2.getDesc3()).putExtra("title4",model2.getTitle4())
-                                .putExtra("desc4",model2.getDesc4()).putExtra("title5",model2.getTitle5())
-                                .putExtra("desc5",model2.getDesc5()));
+                        context.startActivity(new Intent(context,SubRecipeActivity.class)
+                                .putExtra("subCategoriesId",model2.getSubCategoriesId()));
                     }
 
                     @Override
@@ -172,14 +158,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             previousClicked = preferenceManager.getButtonClicked();
             preferenceManager.setButtonClicked(previousClicked+1);
             Log.d("Interstitial", "The interstitial ad wasn't ready yet.");
-            context.startActivity(new Intent(context, RecipeDetailActivity.class)
-                    .putExtra("id",model2.getId()).putExtra("imageUrl",model2.getImageURl())
-                    .putExtra("mainTitle",model2.getMainTitle()).putExtra("title1",model2.getTitle1())
-                    .putExtra("desc1",model2.getDesc1()).putExtra("title2",model2.getTitle2())
-                    .putExtra("desc2",model2.getDesc2()).putExtra("title3",model2.getTitle3())
-                    .putExtra("desc3",model2.getDesc3()).putExtra("title4",model2.getTitle4())
-                    .putExtra("desc4",model2.getDesc4()).putExtra("title5",model2.getTitle5())
-                    .putExtra("desc5",model2.getDesc5()));
+            context.startActivity(new Intent(context,SubRecipeActivity.class)
+                    .putExtra("subCategoriesId",model2.getSubCategoriesId()));
         }
         Log.i("previousClicked",String.valueOf(preferenceManager.getButtonClicked()));
     }

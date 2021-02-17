@@ -10,9 +10,27 @@
     <FrameLayout
         android:background="@color/white"
         android:id="@+id/frame_container"
-        android:layout_above="@id/navigationView"
+        android:layout_above="@id/adView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <View
+        android:id="@+id/adView2"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/adView"
+        android:layout_height="2dp"/>
+    <com.google.android.gms.ads.AdView
+        android:layout_above="@id/navigationView"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bannerId">
+    </com.google.android.gms.ads.AdView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
@@ -25,5 +43,6 @@
         app:itemTextColor="@android:color/darker_gray"
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation"/>
+
 
 </RelativeLayout>

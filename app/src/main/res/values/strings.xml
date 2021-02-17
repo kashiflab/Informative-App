@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Informative App</string>
+    <string name="app_name">简易家常菜</string>
+    <string name="bannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="INTERSTITIAL_ID">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

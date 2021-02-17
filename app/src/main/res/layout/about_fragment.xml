@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/listFragment"
         android:layout_marginTop="30dp"
         android:layout_below="@id/info"
         android:text="前往分类"

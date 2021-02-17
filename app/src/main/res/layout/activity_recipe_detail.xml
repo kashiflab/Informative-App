@@ -8,13 +8,16 @@
     tools:context=".RecipeDetailActivity">
 
     <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:paddingBottom="30dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <TextView
-        android:id="@+id/title"
-        android:text="番茄炒蛋"
-        android:textSize="30sp"
+        android:id="@+id/mainTitle"
+        android:text=""
+        android:padding="5dp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/red"
         android:gravity="center"
@@ -24,13 +27,15 @@
     <ImageView
         android:id="@+id/recipeImage"
         android:src="@drawable/recipe"
-        android:scaleX="2"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 
     <TextView
+        android:id="@+id/title1"
         android:layout_marginTop="30dp"
-        android:text="材料："
+        android:text=""
         android:textColor="@color/blue"
         android:textStyle="bold"
         android:textSize="25sp"
@@ -38,17 +43,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
+        android:id="@+id/desc1"
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:text="番茄2粒或3粒，鸡蛋3粒，小葱1根 （选项），白糖少许，白胡椒粉少许，盐少许，味精少许"
+        android:text=""
         android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/title2"
         android:layout_marginTop="30dp"
-        android:text="做法："
+        android:text=""
         android:textColor="@color/blue"
         android:textStyle="bold"
         android:textSize="25sp"
@@ -57,19 +64,82 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/desc2"
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:text="1. 番茄洗净后切块。
-\n\n2. 鸡蛋打入碗中，加入少许白胡椒粉、盐和味精，打散备用。
-
-\n\n3. 小葱洗净后切成葱花。
-
-\n\n4. 炒锅内倒少许油烧至微热，倒入鸡蛋快速划散，凝固后盛出。
-
-\n\n5. 炒锅内重新倒入少许油烧至7成热，倒入西番茄大火煸炒，然后加入少许白糖炒匀，再倒入鸡蛋一起翻炒，最后调入少许盐和味精，起锅前撒上葱花即可。\n\n"
+        android:text=""
         android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/title3"
+            android:layout_marginTop="30dp"
+            android:text=""
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="start"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/desc3"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text=""
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/title4"
+            android:layout_marginTop="30dp"
+            android:text=""
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="start"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/desc4"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/title5"
+            android:layout_marginTop="30dp"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/desc5"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>
