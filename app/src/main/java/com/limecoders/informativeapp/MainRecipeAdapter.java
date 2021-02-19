@@ -119,7 +119,8 @@ public class MainRecipeAdapter extends RecyclerView.Adapter<MainRecipeAdapter.Vi
                         Log.i("Interstitial", "The ad was dismissed.");
                         createPersonalizedAd();
                         context.startActivity(new Intent(context,SubRecipeActivity.class)
-                                .putExtra("subCategoriesId",model2.getSubCategoriesId()));
+                                .putExtra("subCategoriesId",model2.getSubCategoriesId())
+                        .putExtra("subCategoryName",model2.getName()));
                     }
 
                     @Override
@@ -159,7 +160,8 @@ public class MainRecipeAdapter extends RecyclerView.Adapter<MainRecipeAdapter.Vi
             preferenceManager.setButtonClicked(previousClicked+1);
             Log.d("Interstitial", "The interstitial ad wasn't ready yet.");
             context.startActivity(new Intent(context,SubRecipeActivity.class)
-                    .putExtra("subCategoriesId",model2.getSubCategoriesId()));
+                    .putExtra("subCategoriesId",model2.getSubCategoriesId())
+                    .putExtra("subCategoryName",model2.getName()));
         }
         Log.i("previousClicked",String.valueOf(preferenceManager.getButtonClicked()));
     }

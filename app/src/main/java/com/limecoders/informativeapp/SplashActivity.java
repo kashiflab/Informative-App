@@ -15,12 +15,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        SharedPreferences preferences = getSharedPreferences("com.limecoders.informativeapp",MODE_PRIVATE);
-
-
-        Log.i("helllllloooo",preferences.getString("hello","0"));
-//        Toast.makeText(this, preferences.getString("hello","0"), Toast.LENGTH_SHORT).show();
-
         Thread timer=new Thread(){
             @Override
             public void run() {

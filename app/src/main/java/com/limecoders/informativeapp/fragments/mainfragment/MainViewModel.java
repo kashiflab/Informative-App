@@ -31,6 +31,7 @@ public class MainViewModel extends ViewModel {
         reference.orderByChild("id").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                model.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     model.add(new RecipeDetailsModel(dataSnapshot.child("id").getValue().toString(),
                             dataSnapshot.child("imageURl").getValue().toString(),

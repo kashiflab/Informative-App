@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = getSupportActionBar();
 
-        toolbar.setTitle("");
 
         preferenceManager = new SharedPreferenceManager(this);
 
@@ -67,8 +66,10 @@ public class MainActivity extends AppCompatActivity {
         binding.navigationView.setItemIconTintList(null);
         binding.navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         if(!isAbout) {
+            toolbar.setTitle("目录");
             loadFragment(new MainFragment());
         }else{
+            toolbar.setTitle("分类");
             loadFragment(new ListFragment());
         }
 
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                     showAd();
 
-                    toolbar.setTitle("");
+                    toolbar.setTitle("目录");
                     fragment = new MainFragment();
                     loadFragment(fragment);
                     return true;
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
                     showAd();
 
-                    toolbar.setTitle("");
+                    toolbar.setTitle("分类");
                     fragment = new ListFragment();
                     loadFragment(fragment);
                     return true;
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
                     showAd();
 
-                    toolbar.setTitle("");
+                    toolbar.setTitle("主页");
                     fragment = new AboutFragment();
                     loadFragment(fragment);
                     return true;

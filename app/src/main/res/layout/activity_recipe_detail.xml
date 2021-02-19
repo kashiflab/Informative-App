@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".RecipeDetailActivity">
 
+    <ScrollView
+        android:layout_above="@id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_marginBottom="20dp"
         android:paddingBottom="30dp"
@@ -142,4 +146,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-</ScrollView>
+    </ScrollView>
+    <View
+        android:id="@+id/adView2"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/adView"
+        android:layout_height="2dp"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bannerId">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

@@ -14,16 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="tab1.html"
             android:id="@+id/tab1"
-            android:textStyle="bold"
-            android:layout_marginEnd="5dp"
-            android:padding="5dp"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
             android:text="简易家常菜"
             android:textColor="@color/red"
             android:textSize="35sp"

@@ -33,6 +33,7 @@ public class ListViewModel extends ViewModel {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                models.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     models.add(new MainRecipeModel(dataSnapshot.child("id").getValue().toString(),
                             dataSnapshot.child("name").getValue().toString(),dataSnapshot.child("imageUrl").getValue().toString(),

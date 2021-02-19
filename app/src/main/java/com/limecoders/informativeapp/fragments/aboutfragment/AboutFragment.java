@@ -120,7 +120,7 @@ public class AboutFragment extends Fragment {
                             createPersonalizedAd();
                         }else {
                             startActivity(new Intent(getActivity(), SubRecipeActivity.class)
-                                    .putExtra("isAbout",true));
+                                    .putExtra("isAbout",true).putExtra("subCategoryName","目录"));
                         }
                     }
 
@@ -174,7 +174,7 @@ public class AboutFragment extends Fragment {
                 }
             }else {
                 startActivity(new Intent(getActivity(), SubRecipeActivity.class)
-                        .putExtra("isAbout",true));
+                        .putExtra("isAbout",true).putExtra("subCategoryName","目录"));
             }
         }
         Log.i("previousClicked",String.valueOf(preferenceManager.getButtonClicked()));

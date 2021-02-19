@@ -7,6 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +33,9 @@ public class SubRecipeActivity extends AppCompatActivity {
     private String subCategoriesId;
     private boolean isAbout;
 
+    private AdView mAdView;
+    private String subCategoryName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +43,16 @@ public class SubRecipeActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(getIntent().getStringExtra("subCategoryName"));
+
+        mAdView = findViewById(R.id.adView);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                createPersonalizedAd();
+            }
+        });
 
         Utils.initpDialog(this,"Loading...");
         Utils.showpDialog();
@@ -47,7 +64,6 @@ public class SubRecipeActivity extends AppCompatActivity {
         }
 
         subCategoriesId = getIntent().getStringExtra("subCategoriesId");
-
 
         recyclerView = findViewById(R.id.recipeRecyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -66,6 +82,15 @@ public class SubRecipeActivity extends AppCompatActivity {
 //        getRecipeData();
 
     }
+    private void createPersonalizedAd(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        loadBannerAd(adRequest);
+    }
+
+    private void loadBannerAd(AdRequest adRequest){
+        mAdView.loadAd(adRequest);
+    }
 
     private void getAllRecipes() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Recipes");
@@ -73,6 +98,7 @@ public class SubRecipeActivity extends AppCompatActivity {
         reference.orderByChild("id").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                models.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     models.add(new RecipeDetailsModel(dataSnapshot.child("id").getValue().toString(),
                             dataSnapshot.child("imageURl").getValue().toString(),
@@ -107,6 +133,7 @@ public class SubRecipeActivity extends AppCompatActivity {
         reference.orderByChild("id").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                models.clear();
                 models.add(new RecipeDetailsModel(dataSnapshot.child("id").getValue().toString(),
                         dataSnapshot.child("imageURl").getValue().toString(),
                         dataSnapshot.child("mainTitle").getValue().toString(),

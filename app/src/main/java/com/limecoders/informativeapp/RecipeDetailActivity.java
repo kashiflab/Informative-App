@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +36,14 @@ public class RecipeDetailActivity extends AppCompatActivity {
         binding = ActivityRecipeDetailBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                createPersonalizedAd();
+            }
+        });
 
         if(getIntent().hasExtra("notiIntent")){
             notiIntent = getIntent().getBooleanExtra("notiIntent",false);
@@ -61,9 +73,18 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("");
 
 
+
+    }
+    private void createPersonalizedAd(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        loadBannerAd(adRequest);
+    }
+
+    private void loadBannerAd(AdRequest adRequest){
+        binding.adView.loadAd(adRequest);
     }
 
     private void getRecipeDetail() {
@@ -126,6 +147,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         binding.desc4.setText(desc4);
         binding.title5.setText(title5);
         binding.desc5.setText(desc5);
+        getSupportActionBar().setTitle(mainTitle);
         Utils.hidepDialog();
     }
 
